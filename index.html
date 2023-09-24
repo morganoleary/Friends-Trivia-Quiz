@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts and Font Awesome-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Tenor+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title><i class="fa-solid fa-couch"></i>Friends Trivia Quiz</title>
+  </head>
+  <body>
+    <h1 class="heading">Friends Trivia Quiz</h1>
+
+    <div class="start-page">
+      <p>
+        This online quiz is just a fun little chance to test your knowledge of
+        the classic, hit series, "Friends"! Click the button below to start the
+        fun!
+      </p>
+      <button data-type="begin" class="start-button btn">Begin Quiz!</button>
+    </div>
+
+    <div class="quiz-area hide">
+      <div class="question-line">Which episode did...</div>
+      <div class="answer-buttons">
+        <button data-type="answer" class="answer-option btn">
+          "The one where..."
+        </button>
+        <button data-type="answer" class="answer-option btn">
+          "The one where..."
+        </button>
+        <button data-type="answer" class="answer-option btn">
+          "The one where..."
+        </button>
+        <button data-type="answer" class="answer-option btn">
+          "The one where..."
+        </button>
+      </div>
+      <button data-type="submit-answer" class="submit-answer hide btn">
+        Next Question
+      </button>
+
+      <div class="score-area">
+        <p class="score">Correct:<span class="correct"> X</span></p>
+        <p class="score">Inorrect:<span class="incorrect"> 0</span></p>
+      </div>
+    </div>
+
+    <footer class="footer">Share the fun!</footer>
+
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
