@@ -1,39 +1,68 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Friends Trivia Quiz
 
-Welcome,
+The Friends Trivia Quiz exists to add a bit of fun to anyone's day! This quiz offers a way to pass time at work when things are slow, an alternative to a crossword while waiting for an appointment or just a fun test to see just how big of a Friends fan the user is!
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This quiz will be targeted toward Friends enthusiasts and towards those who might be interested in what the TV series has to offer! The quiz will allow users to begin the quiz and find out their results when the questions run out.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+## User Experience (UX)
 
-## Codeanywhere Reminders
+- ### User Stories:
+	- As a first-time user:
+		- I want to be able to navigate easily to the quiz.
+		- I want to be able to choose an answer to each question.
+		- I want to be able to see my final tally at the end of the quiz.
+	
+	- As a returning visitor:
+		- I want to be able to navigate to the quiz.
+		- I want to be able to choose an answer to each question.
+		- I want to be able to see my final tally at the end of the quiz.
+		- I want to be able to share my quiz with friends and followers after returning for more attempts to gain a perfect score.
+		- *I want to be able to see my scores in comparison to other users.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+    - As a frequest user:
+        - I want to be able to navigate to the quiz.
+		- I want to be able to choose an answer to each question.
+		- I want to be able to see my final tally at the end of the quiz.
+		- I want to be able to share my quiz with friends and followers after returning for more attempts to gain a perfect score.
+		- *I want to be able to see my scores in comparison to other users.
+        - I want to be able to provide feedback to the quiz developers to explain my experience with the quiz.
 
-`python3 -m http.server`
+- ### Design:
+	- Colour Scheme 
+	- Typography
+	- Imagery
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- ### Wireframe:
+	- ![Friends Trivia Wireframe](../Friends-Trivia-Quiz/assets/images/readme%20images/friends-trivia-wireframe.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+## Features
 
-`http_server`
+To be continued...
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Existing Features:
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+- To be continued...
+- To be continued...
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Technologies Used
 
-To log into the Heroku toolbelt CLI:
+- Languages Used...
+- Programs Used...
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Testing
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+To be continued...
 
----
+## Deployment
 
-Happy coding!
+To be continued...
+
+## Credits
+
+### Content: 
+
+- To be continued...
+
+### Media:
+
+- To be continued...

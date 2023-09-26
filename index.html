@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Fonts and Font Awesome-->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Tenor+Sans&display=swap"
       rel="stylesheet"
     />
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -27,29 +28,32 @@
     <div class="start-page">
       <p>
         This online quiz is just a fun little chance to test your knowledge of
-        the classic, hit series, "Friends"! Click the button below to start the
-        fun!
+        the classic, hit series, "Friends"! No matter where you are or what you
+        are (supposed to be) doing, it's always nice to have a short "Friends"
+        break! Click the button below to start the fun!
       </p>
-      <button data-type="begin" class="start-button btn">Begin Quiz!</button>
+      <button data-type="begin-quiz" class="start-button btn">
+        Begin Quiz!
+      </button>
     </div>
 
     <div class="quiz-area hide">
       <div class="question-line">Which episode did...</div>
       <div class="answer-buttons">
-        <button data-type="answer" class="answer-option btn">
+        <button onclick="displayQuestion()" class="answer-option btn">
           "The one where..."
         </button>
-        <button data-type="answer" class="answer-option btn">
+        <button onclick="displayQuestion()" class="answer-option btn">
           "The one where..."
         </button>
-        <button data-type="answer" class="answer-option btn">
+        <button onclick="displayQuestion()" class="answer-option btn">
           "The one where..."
         </button>
-        <button data-type="answer" class="answer-option btn">
+        <button onclick="displayQuestion()" class="answer-option btn">
           "The one where..."
         </button>
       </div>
-      <button data-type="submit-answer" class="submit-answer hide btn">
+      <button data-type="next-question" class="submit-answer hide btn">
         Next Question
       </button>
 
