@@ -1,17 +1,17 @@
 // Get DOM elements
-const buttons = document.getElementsByTagName('button')[0];
-const homePageContent = document.getElementsByClassName('start-page')[0];
-const startButton = document.getElementsByClassName('start-button')[0];
-//const quizQuestions = document.getElementsByClassName('quiz-area');
-//const question = document.getElementsByClassName('question-line')[0];
-//const answerButton = document.getElementsByClassName('answer-buttons')[0];
-const nextQuestion = document.getElementsByClassName('submit-answer')[0];
-const chooseAnswer = document.getElementsByClassName('answer-option')[0];
-const correctAnswer = document.getElementsByClassName('score-correct');
-const incorrectAnswer = document.getElementsByClassName('score-incorrect');
+const buttons = document.getElementsByClassName('btn')[0];
+const startButton = document.querySelector('.start-button');
+const questionElement = document.querySelector('.question-line');
+const answerButtons = document.querySelectorAll('.answer-option');
+const nextQuestionButton = document.querySelector('.next-question');
+
+//const correctAnswer = document.getElementsByClassName('score-correct');
+//const incorrectAnswer = document.getElementsByClassName('score-incorrect');
+
 
 let currentQuestionIndex = 0;
 let score = 0;
+
 
 // Wait for DOM to finish loading before beginning quiz
 document.addEventListener("DOMContentLoaded", function () {
@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 
 // Quiz questions and answers
 const questions = [
@@ -120,50 +121,57 @@ const questions = [
     }
 ];
 
+
 // Quiz begins with click of "Begin Quiz" button
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    // Label button; text will change at end of quiz
-    nextQuestion.innerHTML = "Next Question";
+
     // Hide the start page
-    startButton.style.visibility = 'hidden';
-    homePageContent.style.visibility = 'hidden';
-    displayQuestion();
+    const startPage = document.querySelector('.start-page');
+    startPage.style.display = 'none';
+
+    // Show the quiz area
+    const quizArea = document.querySelector('.quiz-area');
+    quizArea.style.display = 'block';
+
+    // Display the first question
+    displayQuestion(currentQuestionIndex);
+
 }
 
-function displayQuestion(questions) {
-    //question.textContent = questions.question;
-    let question = document.querySelector('.question-line');
-    console.log(question);
+function displayQuestion(index) {
+    const currentQuestion = questions[index];
+    questionElement.textContent = currentQuestion.question;
 
-    let answerButton = document.querySelectorAll('.answer-option');
-    console.log(answerButton);
-
-    /*for (let i = 0, i < questions.length, i++) {
-
-    }
-
-    /*answerButton.forEach(function (answers, [text]) {
-        answers.textContent = question.answers[text];
+    // Clear previous answer buttons to update with current question's answers
+    answerButtons.forEach((button, i) => {
+        button.textContent = currentQuestion.answers[i].text;
     });
 
 
-    /*if (currentQuestion < questions.length) {
-        let currentQuestion = question[currentQuestionIndex];
-        
+    console.log(buttons);
+
+    for (let i = 0; i < buttons.length; i++) {
+        console.log(buttons);
+        buttons[i].addEventListener("click", selectAnswer);
     }
 
-    /*currentQuestion.answers.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerHTML = answer.text;
-        button.classList.add('btn');
-        answerButton.appendChild(button);
-    });*/
+    buttons.addEventListener("click", function () {
+        console.log(buttons);
+        if (this.getAttribute('data-type') === "choose-answer") {
+            console.log('answer chosen');
+            selectAnswer();
+        } else {
+            alert('Please select an answer :D');
+        };
+    });
 }
 
-function selectAnswer() {
-    //chooseAnswer..
+
+function selectAnswer(event) {
+    const chooseAnswer = document.querySelectorAll('.answer-option');
+
 }
 
 function incrementCorrectAnswer() {
@@ -175,7 +183,6 @@ function incrementIncorrectAnswer() {
 }
 
 function showResults() {
-    // Re-label button
-    nextQuestion.innerHTML = "Submit";
+
 }
 
