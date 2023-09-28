@@ -5,9 +5,9 @@ const questionElement = document.querySelector('.question-line');
 const answerButtons = document.querySelectorAll('.answer-option');
 const nextQuestionButton = document.querySelector('.next-question');
 
-//const correctAnswer = document.getElementsByClassName('score-correct');
-//const incorrectAnswer = document.getElementsByClassName('score-incorrect');
-
+const correctAnswer = document.getElementsByClassName('score-correct');
+const incorrectAnswer = document.getElementsByClassName('score-incorrect');
+//const chooseAnswer = document.querySelectorAll('.answer-option');
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -137,7 +137,6 @@ function startQuiz() {
 
     // Display the first question
     displayQuestion(currentQuestionIndex);
-
 }
 
 function displayQuestion(index) {
@@ -147,32 +146,27 @@ function displayQuestion(index) {
     // Clear previous answer buttons to update with current question's answers
     answerButtons.forEach((button, i) => {
         button.textContent = currentQuestion.answers[i].text;
-    });
-
-
-    console.log(buttons);
-
-    for (let i = 0; i < buttons.length; i++) {
-        console.log(buttons);
-        buttons[i].addEventListener("click", selectAnswer);
-    }
-
-    buttons.addEventListener("click", function () {
-        console.log(buttons);
-        if (this.getAttribute('data-type') === "choose-answer") {
-            console.log('answer chosen');
-            selectAnswer();
-        } else {
-            alert('Please select an answer :D');
-        };
+        button.dataset.index = i;
+        button.addEventListener("click", selectAnswer);
     });
 }
-
 
 function selectAnswer(event) {
-    const chooseAnswer = document.querySelectorAll('.answer-option');
 
+    let selectedAnswerIndex = event.target.dataset.index;
+    let currentQuestion = currentQuestionIndex++;
+    let chooseAnswer = currentQuestion.answers[selectedAnswerIndex];
+
+    chooseAnswer.addEventListener("click", function () {
+        if (chooseAnswer === true) {
+            alert("Correct!");
+        } else {
+            alert("Sorry, wrong answer!");
+        }
+    });
 }
+
+selectAnswer();
 
 function incrementCorrectAnswer() {
 
