@@ -52,6 +52,14 @@ body {
     margin: .25em;
 }
 
+.correct {
+    background: rgb(91, 159, 91);
+}
+
+.incorrect {
+    background: rgb(194, 84, 84);
+}
+
 .btn:hover {
     border-color: blueviolet;
     box-shadow: 0 0 10px 2px;

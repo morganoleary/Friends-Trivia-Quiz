@@ -5,9 +5,6 @@ const questionElement = document.querySelector('.question-line');
 const answerButtons = document.querySelectorAll('.answer-option');
 const nextQuestionButton = document.querySelector('.next-question');
 
-const correctAnswer = document.getElementsByClassName('score-correct');
-const incorrectAnswer = document.getElementsByClassName('score-incorrect');
-//const chooseAnswer = document.querySelectorAll('.answer-option');
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -140,33 +137,46 @@ function startQuiz() {
 }
 
 function displayQuestion(index) {
-    const currentQuestion = questions[index];
+    let currentQuestion = questions[index];
     questionElement.textContent = currentQuestion.question;
 
     // Clear previous answer buttons to update with current question's answers
+    // Loop through buttons with forEach
     answerButtons.forEach((button, i) => {
-        button.textContent = currentQuestion.answers[i].text;
-        button.dataset.index = i;
+        button.innerHTML = currentQuestion.answers[i].text;
+
         button.addEventListener("click", selectAnswer);
-    });
-}
 
-function selectAnswer(event) {
-
-    let selectedAnswerIndex = event.target.dataset.index;
-    let currentQuestion = currentQuestionIndex++;
-    let chooseAnswer = currentQuestion.answers[selectedAnswerIndex];
-
-    chooseAnswer.addEventListener("click", function () {
-        if (chooseAnswer === true) {
-            alert("Correct!");
-        } else {
-            alert("Sorry, wrong answer!");
+        let correct = questions[i].answers[i].correct;
+        for (let i = 0; i < correct.length; i++) {
+            if (correct[i].correct === true) {
+                makeGreen();
+            } else {
+                makeRed();
+            }
         }
     });
+    console.log(answerButtons);
 }
 
-selectAnswer();
+
+/**
+ * The below code was learned largely through the following YouTube video:
+ * https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1403s 
+ */
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct = "true";
+    //const notCorrect = selectedBtn.dataset.correct = "false";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+    } else if (notCorrect) {
+        selectedBtn.classList.add("incorrect");
+    } else {
+        alert("Please select an answer :D");
+    }
+
+}
 
 function incrementCorrectAnswer() {
 
