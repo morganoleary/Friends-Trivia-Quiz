@@ -137,53 +137,87 @@ function startQuiz() {
 }
 
 function displayQuestion(index) {
+
     let currentQuestion = questions[index];
+
     questionElement.textContent = currentQuestion.question;
 
+    questions.forEach(() => {
+        currentQuestionIndex++;
+    });
     // Clear previous answer buttons to update with current question's answers
     // Loop through buttons with forEach
     answerButtons.forEach((button, i) => {
-        button.innerHTML = currentQuestion.answers[i].text;
-
-        button.addEventListener("click", selectAnswer);
-
-        let correct = questions[i].answers[i].correct;
-        for (let i = 0; i < correct.length; i++) {
-            if (correct[i].correct === true) {
-                makeGreen();
-            } else {
-                makeRed();
-            }
+        button.textContent = currentQuestion.answers[i].text;
+        console.log(button);
+        // Set the dataset to determine if an answer is correct
+        if (currentQuestion.answers[i].correct) {
+            button.dataset.correct = "true";
+        } else {
+            button.dataset.correct = "false";
         }
-    });
-    console.log(answerButtons);
-}
 
+        console.log("Text content: ", button.textContent);
+        button.addEventListener("click", selectAnswer);
+    });
+}
 
 /**
  * The below code was learned largely through the following YouTube video:
  * https://www.youtube.com/watch?v=PBcqGxrr9g8&t=1403s 
  */
 function selectAnswer(e) {
+
     const selectedBtn = e.target;
-    const isCorrect = selectedBtn.dataset.correct = "true";
-    //const notCorrect = selectedBtn.dataset.correct = "false";
-    if (isCorrect) {
+    console.log("Selected button: ", selectedBtn);
+
+    const data = selectedBtn.dataset.correct;
+    console.log(data);
+
+    // Check if the dataset of answers is true or false
+    if (data == "true") {
+        console.log("It's correct!");
+        // Add color to button in style.css
         selectedBtn.classList.add("correct");
-    } else if (notCorrect) {
+        score++;
+        disableButtons();
+    } else if (data == "false") {
+        console.log("Sorry! That's not the answer!");
         selectedBtn.classList.add("incorrect");
+        score--;
+        disableButtons();
     } else {
         alert("Please select an answer :D");
     }
+}
 
+function disableButtons() {
+    // Disable answer buttons once an answer is chosen
+    for (let i = 0; i < answerButtons.length; i++) {
+        answerButtons[i].removeEventListener("click", selectAnswer);
+    }
+}
+
+// Add event listener to Next button to display the next question
+nextQuestionButton.addEventListener("click", displayNextQuestion);
+
+function displayNextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        showResults();
+    }
 }
 
 function incrementCorrectAnswer() {
-
+    currentQuestionIndex = 0 + 1;
+    nextQuestionButton.addEventListener("click", displayQuestion);
 }
 
 function incrementIncorrectAnswer() {
-
+    currentQuestionIndex = 0 - 1;
+    nextQuestionButton.addEventListener("click", displayQuestion);
 }
 
 function showResults() {
