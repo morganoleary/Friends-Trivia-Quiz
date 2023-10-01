@@ -114,8 +114,22 @@ const questions = [
             { text: 'Felix', correct: false },
         ]
     },
-    // Adding more questions and answers here
+    // Adding more questions and answers
 ];
+
+// Quiz begins with click of "Begin Quiz" button
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    // Hide the start page
+    const startPage = document.querySelector('.start-page');
+    startPage.style.display = 'none';
+    // Show the quiz area
+    const quizArea = document.querySelector('.quiz-area');
+    quizArea.style.display = 'block';
+    // Display the first question
+    displayQuestion(currentQuestionIndex);
+}
 
 // Function to display a question
 function displayQuestion(index) {
@@ -141,21 +155,6 @@ function displayQuestion(index) {
     });
 }
 
-// Quiz begins with click of "Begin Quiz" button
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    // Hide the start page
-    const startPage = document.querySelector('.start-page');
-    startPage.style.display = 'none';
-    // Show the quiz area
-    const quizArea = document.querySelector('.quiz-area');
-    quizArea.style.display = 'block';
-    // Display the first question
-    displayQuestion(currentQuestionIndex);
-}
-
-
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
@@ -166,8 +165,8 @@ function displayNextQuestion() {
     if (currentQuestionIndex < questions.length) {
         displayQuestion(currentQuestionIndex);
     } else {
-        // You have reached the end of the quiz, handle the end of the quiz here.
-        // Show the user's score.
+        // Handle the end of quiz
+        // Show the user's score
         showResults();
     }
 
@@ -210,6 +209,7 @@ function selectAnswer() {
     disableButtons();
 }
 
+// Function to update score tally
 function updateScoreDisplay() {
     // Update corre score display
     correctScoreElement.textContent = correctScore;
@@ -238,5 +238,5 @@ function resetButtonStyles() {
 
 // Function to show final quiz results
 function showResults() {
-    // Handle showing the quiz results/displaying the score
+    // Handle showing the quiz results/display the final score
 }
