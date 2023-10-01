@@ -4,8 +4,12 @@ const startButton = document.querySelector('.start-button');
 const questionElement = document.querySelector('.question-line');
 const answerButtons = document.querySelectorAll('.answer-option');
 const nextQuestionButton = document.querySelector('.next-question');
+const correctScoreElement = document.getElementsByClassName('score-correct');
+const incorrectScoreElement = document.getElementsByClassName('score-incorrect');
 let currentQuestionIndex = 0;
-let score = 0;
+let correctScore = 0;
+let incorrectScore = 0;
+
 // Wait for DOM to finish loading before beginning quiz
 document.addEventListener("DOMContentLoaded", function () {
     // Add event listener to start button
@@ -17,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
 // Quiz questions and answers
 const questions = [
     {
@@ -109,27 +114,16 @@ const questions = [
             { text: 'Felix', correct: false },
         ]
     },
-    // Add more questions and answers here
+    // Adding more questions and answers here
 ];
-// Quiz begins with click of "Begin Quiz" button
-function startQuiz() {
-    currentQuestionIndex = 0;
-    score = 0;
-    // Hide the start page
-    const startPage = document.querySelector('.start-page');
-    startPage.style.display = 'none';
-    // Show the quiz area
-    const quizArea = document.querySelector('.quiz-area');
-    quizArea.style.display = 'block';
-    // Display the first question
-    displayQuestion(currentQuestionIndex);
-}
+
+// Function to display a question
 function displayQuestion(index) {
     let currentQuestion = questions[index];
     questionElement.textContent = currentQuestion.question;
     // Disable the Next Question button
     nextQuestionButton.disabled = true;
-    // Loop through buttons with forEach
+    // Loop through answer buttons with forEach
     answerButtons.forEach((button, i) => {
         button.textContent = currentQuestion.answers[i].text;
         // Set the dataset to determine if an answer is correct
@@ -146,21 +140,42 @@ function displayQuestion(index) {
         });
     });
 }
-function selectAnswer() {
-    const selectedBtn = event.target;
-    const data = selectedBtn.dataset.correct;
-    // Check if the dataset of answers is true or false
-    if (data == "true") {
-        selectedBtn.classList.add("correct");
-        score++;
-        disableButtons();
-    } else if (data == "false") {
-        selectedBtn.classList.add("incorrect");
-        score--;
-        disableButtons();
+
+// Quiz begins with click of "Begin Quiz" button
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    // Hide the start page
+    const startPage = document.querySelector('.start-page');
+    startPage.style.display = 'none';
+    // Show the quiz area
+    const quizArea = document.querySelector('.quiz-area');
+    quizArea.style.display = 'block';
+    // Display the first question
+    displayQuestion(currentQuestionIndex);
+}
+
+
+// Add event listener to Next button to display the next question
+nextQuestionButton.addEventListener("click", displayNextQuestion);
+
+// Function to display the next question
+function displayNextQuestion() {
+    currentQuestionIndex++;
+    resetButtonStyles();
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion(currentQuestionIndex);
     } else {
-        alert("Please select an answer :D");
+        // You have reached the end of the quiz, handle the end of the quiz here.
+        // Show the user's score.
+        showResults();
     }
+
+    // Enable all answer buttons for the next question
+    answerButtons.forEach(button => {
+        button.disabled = false;
+    });
+
     // Remove event listeners from answer buttons
     answerButtons.forEach(button => {
         button.removeEventListener("click", () => {
@@ -170,6 +185,39 @@ function selectAnswer() {
         });
     });
 }
+
+// Function to handle selection of an answer
+function selectAnswer() {
+    const selectedBtn = event.target;
+    const data = selectedBtn.dataset.correct;
+    // Check if the dataset of answers is true or false
+    if (data == "true") {
+        // Change color to green if correct
+        selectedBtn.classList.add("correct");
+        // Increment correct score
+        correctScore++;
+    } else if (data == "false") {
+        // Change color to red if incorrect
+        selectedBtn.classList.add("incorrect");
+        // Increment incorrect score
+        incorrectScore++;
+    } else {
+        alert("Please select an answer :D");
+    }
+    // Update and display scores
+    updateScoreDisplay();
+    // Disable answer buttons
+    disableButtons();
+}
+
+function updateScoreDisplay() {
+    // Update corre score display
+    correctScoreElement.textContent = correctScore;
+    // Update incorrect score display
+    incorrectScoreElement.textContent = incorrectScore;
+}
+
+// Function to disable answer buttons
 function disableButtons() {
     // Disable answer buttons once an answer is chosen
     answerButtons.forEach(button => {
@@ -180,32 +228,15 @@ function disableButtons() {
         });
     });
 }
-// Add event listener to Next button to display the next question
-nextQuestionButton.addEventListener("click", displayNextQuestion);
-function displayNextQuestion() {
-    currentQuestionIndex++;
-    resetButtonStyles();
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion(currentQuestionIndex);
-    } else {
-        // You have reached the end of the quiz, handle the end of the quiz here.
-        // For example, you can show the user's score.
-        showResults();
-    }
-    // Remove event listeners from answer buttons
-    answerButtons.forEach(button => {
-        button.removeEventListener("click", () => {
-            selectAnswer();
-            // Enable the Next Question button
-            nextQuestionButton.disabled = false;
-        });
-    });
-}
+
+// Function to reset button styles
 function resetButtonStyles() {
     answerButtons.forEach(button => {
         button.classList.remove("correct", "incorrect");
     });
 }
+
+// Function to show final quiz results
 function showResults() {
-    // Handle showing the quiz results, e.g., displaying the score
+    // Handle showing the quiz results/displaying the score
 }
