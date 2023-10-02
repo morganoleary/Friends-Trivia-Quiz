@@ -21,6 +21,8 @@ body {
     border-radius: 5px;
     background-color: bisque;
     box-shadow: 0 0 10px 1.5px;
+    padding: 2em;
+    letter-spacing: .03em;
 }
 
 .quiz-area {
@@ -88,5 +90,21 @@ body {
     min-width: fit-content;
     background-color: bisque;
     margin-top: auto;
+    padding: 1em;
+}
+
+.feedback-container {
+    width: 80%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: bisque;
+    box-shadow: 0 0 10px 1.5px;
+    padding: 2em;
+    letter-spacing: .03em;
+}
+
+.your-score {
     padding: 1em;
 }

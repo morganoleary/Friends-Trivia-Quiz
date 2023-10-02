@@ -372,6 +372,8 @@ function updateScoreDisplay() {
     incorrectScoreElement.textContent = incorrectScore;
 }
 
+// // // MIGHT NEED TO CHANGE SO MULTIPLE ANSWERS CAN'T BE CHOSEN
+
 // Function to disable answer buttons once an answer is selected
 function disableButtons() {
     answerButtons.forEach(button => {
@@ -397,11 +399,19 @@ function resetButtonStyles() {
 
 // Function to show final quiz results
 function showResults() {
-    // Handle showing the quiz results/display the final score
-    // Show results/feedback page
+    // Hide quiz area
+    const quizArea = document.querySelector('.quiz-area');
+    quizArea.style.display = 'none';
+
+    // Show results page
+    const resultsPage = document.querySelector('.results-page');
     resultsPage.style.display = 'block';
 
-    // Hide quiz area (*****NOT WORKING*****)
-    quizArea.style.display = 'none';
+    let yourScore = document.querySelector('.your-score');
+    if (correctScore >= 7) {
+        yourScore.textContent = `You know your stuff! You got ${correctScore} out of 10 correct!`;
+    } else {
+        yourScore.textContent = `You scored ${correctScore} out of 10! Better luck next time!`;
+    }
 
 }
