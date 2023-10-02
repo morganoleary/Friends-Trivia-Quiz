@@ -114,8 +114,150 @@ const questions = [
             { text: 'Felix', correct: false },
         ]
     },
-    // Adding more questions and answers
+    {
+        question: "The series 'Friends' is set in which city?",
+        answers: [
+            { text: 'Los Angeles', correct: false },
+            { text: 'New York City', correct: true },
+            { text: 'Miami', correct: false },
+            { text: 'Seattle', correct: false },
+        ]
+    },
+    {
+        question: "What is Monica skilled at?",
+        answers: [
+            { text: 'Bricklaying', correct: false },
+            { text: 'Singing', correct: false },
+            { text: 'Cooking', correct: true },
+            { text: 'American football', correct: false },
+        ]
+    },
+    {
+        question: "What’s the name of the 1950s-themed diner where Monica worked as a waitress?",
+        answers: [
+            { text: 'Marilyn & Audrey', correct: false },
+            { text: 'Twilight Galaxy', correct: false },
+            { text: 'Marvin\'s', correct: false },
+            { text: 'Moondance Diner', correct: true },
+        ]
+    },
+    {
+        question: "Which cartoon character was on Phoebe’s thermos that Ursula threw under a bus?",
+        answers: [
+            { text: 'Pebbles Flinstone', correct: false },
+            { text: 'Yogi Bear', correct: false },
+            { text: 'Judy Jetson', correct: true },
+            { text: 'Bullwinkle', correct: false },
+        ]
+    },
+    {
+        question: "What's the name of Janice's first husband?",
+        answers: [
+            { text: 'Sid Goralnik', correct: true },
+            { text: 'Gary Litman', correct: false },
+            { text: 'Rob Bailystock', correct: false },
+            { text: 'Nick Layster', correct: false },
+        ]
+    },
+    {
+        question: "What job does Ross have?",
+        answers: [
+            { text: 'Artist', correct: false },
+            { text: 'Photographer', correct: false },
+            { text: 'Paleontologist', correct: true },
+            { text: 'Insurance salesman', correct: false },
+        ]
+    },
+    {
+        question: "What does Joey never share?",
+        answers: [
+            { text: 'His books', correct: false },
+            { text: 'His food', correct: true },
+            { text: 'His information', correct: false },
+            { text: 'His DVD\'s', correct: false },
+        ]
+    },
+    {
+        question: "Which Friends character plays Dr. Drake Ramoray on the show Days Of Our Lives?",
+        answers: [
+            { text: 'Pete Becker', correct: false },
+            { text: 'Ross Geller', correct: false },
+            { text: 'Joey Tribbiani', correct: true },
+            { text: 'Eddie Menuek', correct: false },
+        ]
+    },
+    {
+        question: "What’s the name of the grumpy person who works at the coffee shop?",
+        answers: [
+            { text: 'Herman', correct: false },
+            { text: 'Gunther', correct: true },
+            { text: 'Frasier', correct: false },
+            { text: 'Eddie', correct: false },
+        ]
+    },
+    {
+        question: "Who sang the Friends theme?",
+        answers: [
+            { text: 'The Rembrandts', correct: true },
+            { text: 'The Banksys', correct: false },
+            { text: 'The Constables', correct: false },
+            { text: 'The Da Vinci Band', correct: false },
+        ]
+    },
+    {
+        question: "What kind of uniform does Joey wear to Monica and Chandler’s wedding?",
+        answers: [
+            { text: 'Chef', correct: false },
+            { text: 'Fire fighter', correct: false },
+            { text: 'A baseball player', correct: false },
+            { text: 'Soldier', correct: true },
+        ]
+    },
+    {
+        question: "What are Ross and Monica's parents called?",
+        answers: [
+            { text: 'Jack and Jill', correct: false },
+            { text: 'Philip and Holly', correct: false },
+            { text: 'Jack and Judy', correct: true },
+            { text: 'Margeret and Peter', correct: false },
+        ]
+    },
+    {
+        question: "When Ross and Rachel were“on a break, Ross slept with Chloe. Where does she work?",
+        answers: [
+            { text: 'Xerox', correct: true },
+            { text: 'Microsoft', correct: false },
+            { text: 'Domino\'s', correct: false },
+            { text: 'Bank of America', correct: false },
+        ]
+    },
+    {
+        question: "Chandler’s mom had an interesting career and even more interesting love life. What’s her name?",
+        answers: [
+            { text: 'Priscilla Mae Galway', correct: false },
+            { text: 'Mary Jane Blaese', correct: false },
+            { text: 'Nora Tyler Bing', correct: true },
+            { text: 'Jessica Grace Carter', correct: false },
+        ]
+    },
+    {
+        question: "Monica and Chandler met on Thanksgiving in 1987. She pursued her career as a chef because Chandler complimented her on which dish?",
+        answers: [
+            { text: 'Green bean casserole', correct: false },
+            { text: 'Meatloaf', correct: false },
+            { text: 'Stuffing', correct: false },
+            { text: 'Macaroni and cheese', correct: true },
+        ]
+    },
 ];
+
+// Stop quiz after 10 questions (next game will randomize & restart the questions)
+
+// Randomize questions (***** NOT WORKING YET *****)
+questions[Math.floor(Math.random() * questions.lenght)];
+
+const resultsPage = document.querySelector('.results-page');
+resultsPage.style.display = 'none';
 
 // Quiz begins with click of "Begin Quiz" button
 function startQuiz() {
@@ -239,4 +381,10 @@ function resetButtonStyles() {
 // Function to show final quiz results
 function showResults() {
     // Handle showing the quiz results/display the final score
+    // Show results/feedback page
+    resultsPage.style.display = 'block';
+
+    // Hide quiz area (*****NOT WORKING*****)
+    quizArea.style.display = 'none';
+
 }

@@ -73,6 +73,16 @@ body {
     display: none;
 }
 
+.results-page {
+    width: 80%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: bisque;
+    box-shadow: 0 0 10px 1.5px;
+}
+
 .footer {
     max-height: 6vh;
     min-width: fit-content;
