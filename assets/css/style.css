@@ -94,17 +94,36 @@ body {
 }
 
 .feedback-container {
-    width: 80%;
+    width: 50%;
     height: 60%;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 5px;
-    background-color: bisque;
-    box-shadow: 0 0 10px 1.5px;
+    padding-bottom: 2em;
+    letter-spacing: .03em;
+    display: flex;
+    flex-direction: column;
+}
+
+.your-score {
+    width: 80%;
+    height: 60%;
+    margin: auto;
     padding: 2em;
     letter-spacing: .03em;
 }
 
-.your-score {
+.form-label {
+    padding: 0 0 1.2em;
+}
+
+.feedback-text-box {
+    width: 80%;
     padding: 1em;
+    margin: auto;
+    font-size: medium;
+}
+
+.submit-button {
+    margin: auto;
+    margin-top: 1em;
 }

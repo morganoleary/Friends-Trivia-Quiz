@@ -367,9 +367,9 @@ function selectAnswer() {
 // Function to update score tally
 function updateScoreDisplay() {
     // Update correct score display
-    correctScoreElement.textContent = correctScore;
+    correctScoreElement.textContent = `   ${correctScore}`;
     // Update incorrect score display
-    incorrectScoreElement.textContent = incorrectScore;
+    incorrectScoreElement.textContent = `   ${incorrectScore}`;
 }
 
 // // // MIGHT NEED TO CHANGE SO MULTIPLE ANSWERS CAN'T BE CHOSEN

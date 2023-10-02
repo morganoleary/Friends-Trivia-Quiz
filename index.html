@@ -66,15 +66,22 @@
 
       <form
         id="feedback-container"
+        class="feedback-container"
         action="https://formdump.codeinstitute.net/"
         method="post"
       >
-        <label for="feedback_form"
+        <label for="feedback_form" class="form-label"
           >Did you enjoy the quiz?? Let us know! :D</label
         >
-        <input type="text" name="feedback_form" id="feedback_form" />
+        <input
+          type="text"
+          name="feedback_form"
+          id="feedback_form"
+          class="feedback-text-box"
+          size="50"
+        />
+        <button type="submit" class="submit-button btn">Submit Feedback</button>
       </form>
-      <button type="submit">Submit Feedback</button>
     </div>
 
     <footer class="footer">Share the fun!</footer>
