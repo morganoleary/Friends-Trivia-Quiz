@@ -9,6 +9,8 @@ const incorrectScoreElement = document.getElementById('score-incorrect');
 let currentQuestionIndex = 0;
 let correctScore = 0;
 let incorrectScore = 0;
+let totalQuestions = 25;
+let questionsAnswered = 0;
 
 // Wait for DOM to finish loading before beginning quiz
 document.addEventListener("DOMContentLoaded", function () {
@@ -251,8 +253,6 @@ const questions = [
     },
 ];
 
-// Stop quiz after 10 questions (next game will randomize & restart the questions)
-
 // Function to randomize questions - using Fisher-Yates algorithm
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -262,9 +262,6 @@ function shuffleArray(array) {
 }
 
 shuffleArray(questions);
-
-const resultsPage = document.querySelector('.results-page');
-resultsPage.style.display = 'none';
 
 // Quiz begins with click of "Begin Quiz" button
 function startQuiz() {
@@ -278,6 +275,9 @@ function startQuiz() {
     quizArea.style.display = 'block';
     // Display the first question
     displayQuestion(currentQuestionIndex);
+    // Hide the results page
+    const resultsPage = document.querySelector('.results-page');
+    resultsPage.style.display = 'none';
 }
 
 // Function to display a question
@@ -307,6 +307,11 @@ function displayQuestion(index) {
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
+// Function to stop quiz after 10 questions are answered
+function stopQuiz() {
+    return questionsAnswered >= 10;
+}
+
 // Function to display the next question
 function displayNextQuestion() {
     currentQuestionIndex++;
@@ -314,7 +319,8 @@ function displayNextQuestion() {
     if (currentQuestionIndex < questions.length) {
         displayQuestion(currentQuestionIndex);
     } else {
-        // Handle the end of quiz
+        // End the quiz after 10 questions
+        stopQuiz();
         // Show the user's score
         showResults();
     }
@@ -336,6 +342,13 @@ function displayNextQuestion() {
 
 // Function to handle selection of an answer
 function selectAnswer() {
+    questionsAnswered++;
+    if (questionsAnswered >= 10) {
+        stopQuiz();
+    } else {
+        displayNextQuestion();
+    }
+
     const selectedBtn = event.target;
     const data = selectedBtn.dataset.correct;
     // Check if the dataset of answers is true or false
@@ -352,6 +365,7 @@ function selectAnswer() {
     } else {
         alert("Please select an answer :D");
     }
+
     // Update and display scores
     updateScoreDisplay();
     // Disable answer buttons
