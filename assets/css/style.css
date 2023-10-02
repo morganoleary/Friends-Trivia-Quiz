@@ -33,6 +33,7 @@ body {
     border-radius: 5px;
     background-color: bisque;
     box-shadow: 0 0 10px 1.5px;
+    margin-bottom: 2em;
 }
 
 .question-line {
@@ -83,14 +84,7 @@ body {
     border-radius: 5px;
     background-color: bisque;
     box-shadow: 0 0 10px 1.5px;
-}
-
-.footer {
-    max-height: 6vh;
-    min-width: fit-content;
-    background-color: bisque;
-    margin-top: auto;
-    padding: 1em;
+    margin-bottom: 2em;
 }
 
 .feedback-container {
@@ -126,4 +120,12 @@ body {
 .submit-button {
     margin: auto;
     margin-top: 1em;
+}
+
+.footer {
+    max-height: 6vh;
+    min-width: fit-content;
+    background-color: bisque;
+    margin-top: auto;
+    padding: 1em;
 }

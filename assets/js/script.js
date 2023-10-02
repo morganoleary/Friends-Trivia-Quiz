@@ -372,21 +372,10 @@ function updateScoreDisplay() {
     incorrectScoreElement.textContent = `   ${incorrectScore}`;
 }
 
-// // // MIGHT NEED TO CHANGE SO MULTIPLE ANSWERS CAN'T BE CHOSEN
-
 // Function to disable answer buttons once an answer is selected
 function disableButtons() {
     answerButtons.forEach(button => {
-        if (questionsAnswered < 9) {
-            button.removeEventListener("click", () => {
-                selectAnswer();
-                // Enable the Next Question button
-                nextQuestionButton.disabled = false;
-            });
-        } else {
-            button.disabled = true;
-            nextQuestionButton.disabled = false;
-        }
+        button.disabled = true;
     });
 }
 
