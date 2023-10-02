@@ -280,30 +280,6 @@ function startQuiz() {
     resultsPage.style.display = 'none';
 }
 
-// Function to display a question
-function displayQuestion(index) {
-    let currentQuestion = questions[index];
-    questionElement.textContent = currentQuestion.question;
-    // Disable the Next Question button
-    nextQuestionButton.disabled = true;
-    // Loop through answer buttons with forEach
-    answerButtons.forEach((button, i) => {
-        button.textContent = currentQuestion.answers[i].text;
-        // Set the dataset to determine if an answer is correct
-        if (currentQuestion.answers[i].correct) {
-            button.dataset.correct = "true";
-        } else {
-            button.dataset.correct = "false";
-        }
-        // Add a click event listener to enable the Next Question button on answer selection
-        button.addEventListener("click", () => {
-            selectAnswer();
-            // Enable the Next Question button
-            nextQuestionButton.disabled = false;
-        });
-    });
-}
-
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
@@ -316,39 +292,55 @@ function stopQuiz() {
 function displayNextQuestion() {
     currentQuestionIndex++;
     resetButtonStyles();
-    if (currentQuestionIndex < questions.length) {
-        displayQuestion(currentQuestionIndex);
-    } else {
-        // End the quiz after 10 questions
-        stopQuiz();
-        // Show the user's score
+    questionsAnswered++;
+    // End quiz after 10 questions of if there are no more questions
+    if (stopQuiz() || currentQuestionIndex >= questions.length) {
         showResults();
+        return; // Exit the function
     }
+
+    displayQuestion(currentQuestionIndex);
 
     // Enable all answer buttons for the next question
     answerButtons.forEach(button => {
         button.disabled = false;
     });
+}
 
-    // Remove event listeners from answer buttons
-    answerButtons.forEach(button => {
-        button.removeEventListener("click", () => {
-            selectAnswer();
-            // Enable the Next Question button
-            nextQuestionButton.disabled = false;
-        });
+// Function to display a question
+function displayQuestion(index) {
+    let currentQuestion = questions[index];
+    questionElement.textContent = currentQuestion.question;
+    // Disable the Next Question button
+    nextQuestionButton.disabled = true;
+
+    // Loop through answer buttons with forEach
+    answerButtons.forEach((button, i) => {
+        button.textContent = currentQuestion.answers[i].text;
+        // Set the dataset to determine if an answer is correct
+        if (currentQuestion.answers[i].correct) {
+            button.dataset.correct = "true";
+        } else {
+            button.dataset.correct = "false";
+        }
+
+        // Remove previous event listeners to avoid duplicates
+        button.removeEventListener('click', handleAnswerClick);
+
+        // Add a click event listener to enable the Next Question button on answer selection
+        button.addEventListener("click", handleAnswerClick);
+
     });
+}
+
+function handleAnswerClick() {
+    selectAnswer();
+    // Enable the Next Question button
+    nextQuestionButton.disabled = false;
 }
 
 // Function to handle selection of an answer
 function selectAnswer() {
-    questionsAnswered++;
-    if (questionsAnswered >= 10) {
-        stopQuiz();
-    } else {
-        displayNextQuestion();
-    }
-
     const selectedBtn = event.target;
     const data = selectedBtn.dataset.correct;
     // Check if the dataset of answers is true or false
@@ -380,15 +372,19 @@ function updateScoreDisplay() {
     incorrectScoreElement.textContent = incorrectScore;
 }
 
-// Function to disable answer buttons
+// Function to disable answer buttons once an answer is selected
 function disableButtons() {
-    // Disable answer buttons once an answer is chosen
     answerButtons.forEach(button => {
-        button.removeEventListener("click", () => {
-            selectAnswer();
-            // Enable the Next Question button
+        if (questionsAnswered < 9) {
+            button.removeEventListener("click", () => {
+                selectAnswer();
+                // Enable the Next Question button
+                nextQuestionButton.disabled = false;
+            });
+        } else {
+            button.disabled = true;
             nextQuestionButton.disabled = false;
-        });
+        }
     });
 }
 
