@@ -253,8 +253,15 @@ const questions = [
 
 // Stop quiz after 10 questions (next game will randomize & restart the questions)
 
-// Randomize questions (***** NOT WORKING YET *****)
-questions[Math.floor(Math.random() * questions.lenght)];
+// Function to randomize questions - using Fisher-Yates algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+shuffleArray(questions);
 
 const resultsPage = document.querySelector('.results-page');
 resultsPage.style.display = 'none';
