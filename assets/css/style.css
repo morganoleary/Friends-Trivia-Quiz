@@ -164,7 +164,7 @@ body {
     background-color: bisque;
     padding: 1em;
     position: static;
-    overflow: none;
+    overflow: hidden;
     margin-top: auto;
 }
 

@@ -1,6 +1,7 @@
+// jshint esversion: 6
+
 // Get DOM elements
 const buttons = document.getElementsByClassName('btn')[0];
-const startButton = document.querySelector('.start-button');
 const questionElement = document.querySelector('.question-line');
 const answerButtons = document.querySelectorAll('.answer-option');
 const nextQuestionButton = document.querySelector('.next-question');
