@@ -270,6 +270,9 @@ function startQuiz() {
     // Hide the start page
     const startPage = document.querySelector('.start-page');
     startPage.style.display = 'none';
+
+    const frontImage = document.querySelector('.front-page-image');
+    frontImage.style.display = 'none';
     // Show the quiz area
     const quizArea = document.querySelector('.quiz-area');
     quizArea.style.display = 'block';
@@ -403,15 +406,3 @@ function showResults() {
         yourScore.textContent = `You scored ${correctScore} out of 10! Better luck next time!`;
     }
 }
-
-/*
-const restartButton = document.querySelector('.restart-button');
-restartButton.addEventListener('click', restartQuiz);
-
-// Function to restart quiz
-function restartQuiz() {
-    startQuiz();
-    resetButtonStyles();
-    quizArea.style.display = 'none';
-}
-*/

@@ -11,7 +11,7 @@ body {
 }
 
 .heading {
-    margin: 2em;
+    margin: 2em 0 1em;
 }
 
 /* Start page before quiz begins */
@@ -25,6 +25,16 @@ body {
     box-shadow: 0 0 10px 1.5px;
     padding: 2em;
     letter-spacing: .03em;
+}
+
+/* Front page image */
+.front-page-image img {
+    margin-top: 1em;
+    max-width: 70%;
+    box-shadow: 0 0 10px 1.5px;
+    border-radius: 5px;
+    padding: 2em;
+    margin-bottom: 1em;
 }
 
 /* Style for quiz page */
@@ -134,13 +144,6 @@ body {
     margin: auto;
     margin-top: 1em;
 }
-
-/*
-.restart-button {
-    margin: auto;
-    margin-top: 1em;
-}
-*/
 
 /* Footer styles */
 .footer {
