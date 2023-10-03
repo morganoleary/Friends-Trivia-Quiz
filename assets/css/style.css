@@ -1,3 +1,4 @@
+/* Main page styles */
 body {
     background-color: rgb(178, 144, 178);
     font-family: "Shantell Sans", sans-serif;
@@ -13,6 +14,7 @@ body {
     margin: 2em;
 }
 
+/* Start page before quiz begins */
 .start-page {
     width: 80%;
     height: 60%;
@@ -25,6 +27,7 @@ body {
     letter-spacing: .03em;
 }
 
+/* Style for quiz page */
 .quiz-area {
     width: 80%;
     height: 60%;
@@ -48,6 +51,7 @@ body {
     margin-right: auto;
 }
 
+/* Style for all buttons */
 .btn {
     padding: .75em;
     background-color: rgb(220, 160, 138);
@@ -55,27 +59,33 @@ body {
     margin: .25em;
 }
 
+/* Answer button changes green when correct */
 .correct {
     background: rgb(91, 159, 91);
 }
 
+/* Answer button changes red when incorrect */
 .incorrect {
     background: rgb(194, 84, 84);
 }
 
+/* Hover style over buttons */
 .btn:hover {
     border-color: blueviolet;
     box-shadow: 0 0 10px 2px;
 }
 
+/* Next Question button */
 .next-question {
     padding: 1em;
 }
 
+/* Hides content */
 .hide {
     display: none;
 }
 
+/* Results Page styles */
 .results-page {
     width: 80%;
     height: 60%;
@@ -87,6 +97,16 @@ body {
     margin-bottom: 2em;
 }
 
+/* Line to display score results */
+.your-score {
+    width: 80%;
+    height: 60%;
+    margin: auto;
+    padding: 2em;
+    letter-spacing: .03em;
+}
+
+/* Feedback form */
 .feedback-container {
     width: 50%;
     height: 60%;
@@ -96,14 +116,6 @@ body {
     letter-spacing: .03em;
     display: flex;
     flex-direction: column;
-}
-
-.your-score {
-    width: 80%;
-    height: 60%;
-    margin: auto;
-    padding: 2em;
-    letter-spacing: .03em;
 }
 
 .form-label {
@@ -117,15 +129,28 @@ body {
     font-size: medium;
 }
 
+/* Submit Feedback button */
 .submit-button {
     margin: auto;
     margin-top: 1em;
 }
 
+/*
+.restart-button {
+    margin: auto;
+    margin-top: 1em;
+}
+*/
+
+/* Footer styles */
 .footer {
     max-height: 6vh;
     min-width: fit-content;
     background-color: bisque;
     margin-top: auto;
     padding: 1em;
+}
+
+.footer-item {
+    padding: .5em;
 }

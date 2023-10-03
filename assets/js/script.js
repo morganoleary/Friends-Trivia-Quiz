@@ -402,5 +402,16 @@ function showResults() {
     } else {
         yourScore.textContent = `You scored ${correctScore} out of 10! Better luck next time!`;
     }
-
 }
+
+/*
+const restartButton = document.querySelector('.restart-button');
+restartButton.addEventListener('click', restartQuiz);
+
+// Function to restart quiz
+function restartQuiz() {
+    startQuiz();
+    resetButtonStyles();
+    quizArea.style.display = 'none';
+}
+*/
