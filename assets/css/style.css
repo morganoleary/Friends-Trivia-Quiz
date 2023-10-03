@@ -184,6 +184,7 @@ body {
 
 .error-image img {
     max-width: 50%;
+    max-height: 50%;
     margin-top: 1em;
     box-shadow: 0 0 10px 1.5px;
     border-radius: 5px;
@@ -191,7 +192,7 @@ body {
     margin-bottom: 1em;
 }
 
-/* Media query for tablets and larger (320px and up) */
+/* Media query for mobile and larger (320px and up) */
 @media screen and (min-width: 320px) {
 
     /* Start Page */
