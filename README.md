@@ -101,7 +101,7 @@ This quiz was deployed through GitHub Pages.
 	- Reload page once updated
 	- Click on deployed github-pages link in the right-hand side of the “Code” page.
 	
-The live link to this site can be found here: 	
+The live link to this site can be found here: https://morganoleary.github.io/Friends-Trivia-Quiz/
 
 ## Credits
 
