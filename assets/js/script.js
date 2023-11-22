@@ -328,23 +328,16 @@ function displayQuestion(index) {
             button.dataset.correct = "false";
         }
 
-        // Remove previous event listeners to avoid duplicates
-        button.removeEventListener('click', handleAnswerClick);
-
         // Add a click event listener to enable the Next Question button on answer selection
-        button.addEventListener("click", handleAnswerClick);
+        button.addEventListener("click", selectAnswer);
 
     });
 }
 
-function handleAnswerClick() {
-    selectAnswer();
-    // Enable the Next Question button
-    nextQuestionButton.disabled = false;
-}
-
 // Function to handle selection of an answer
-function selectAnswer() {
+function selectAnswer(event) {
+    nextQuestionButton.disabled = false;
+
     const selectedBtn = event.target;
     const data = selectedBtn.dataset.correct;
     // Check if the dataset of answers is true or false
