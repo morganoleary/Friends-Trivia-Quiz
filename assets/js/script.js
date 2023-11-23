@@ -7,6 +7,8 @@ const answerButtons = document.querySelectorAll('.answer-option');
 const nextQuestionButton = document.querySelector('.next-question');
 const correctScoreElement = document.getElementById('score-correct');
 const incorrectScoreElement = document.getElementById('score-incorrect');
+const quizArea = document.querySelector('.quiz-area');
+const resultsPage = document.querySelector('.results-page');
 let currentQuestionIndex = 0;
 let correctScore = 0;
 let incorrectScore = 0;
@@ -336,6 +338,7 @@ function displayQuestion(index) {
 
 // Function to handle selection of an answer
 function selectAnswer(event) {
+    //Enable next question button
     nextQuestionButton.disabled = false;
 
     const selectedBtn = event.target;
@@ -386,11 +389,9 @@ function resetButtonStyles() {
 // Function to show final quiz results
 function showResults() {
     // Hide quiz area
-    const quizArea = document.querySelector('.quiz-area');
     quizArea.style.display = 'none';
 
     // Show results page
-    const resultsPage = document.querySelector('.results-page');
     resultsPage.style.display = 'block';
 
     let yourScore = document.querySelector('.your-score');
@@ -399,4 +400,23 @@ function showResults() {
     } else {
         yourScore.textContent = `You scored ${correctScore} out of 10! Better luck next time!`;
     }
+
+    restartQuizButton();
+}
+
+// Function to listen for click of restart button
+function restartQuizButton() {
+    const restartButton = document.querySelector('.restart-button')
+    restartButton.addEventListener("click", restartQuiz);
+}
+
+// Function to restart quiz from beginning
+function restartQuiz() {
+    // Hide results page
+    resultsPage.style.display = 'none';
+
+    startQuiz();
+    // Reset questions & score
+    currentQuestionIndex = 0
+    score = 0
 }
