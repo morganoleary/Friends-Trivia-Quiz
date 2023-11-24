@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Quiz questions and answers
 const questions = [
     {
         question: "What is the name of Phoebe's alter-ego?",
@@ -277,21 +276,31 @@ function startQuiz() {
     const frontImage = document.querySelector('.front-page-image');
     frontImage.style.display = 'none';
     // Show the quiz area
-    const quizArea = document.querySelector('.quiz-area');
-    quizArea.style.display = 'block';
+    showQuizArea();
     // Display the first question
     displayQuestion(currentQuestionIndex);
     // Hide the results page
-    const resultsPage = document.querySelector('.results-page');
-    resultsPage.style.display = 'none';
+    hideResultsPage();
 }
 
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
+// Show quiz area
+function showQuizArea() {
+    const quizArea = document.querySelector('.quiz-area');
+    quizArea.style.display = 'block';
+}
+
+// Hide results page
+function hideResultsPage() {
+    const resultsPage = document.querySelector('.results-page');
+    resultsPage.style.display = 'none';
+}
+
 // Function to stop quiz after 10 questions are answered
 function stopQuiz() {
-    return questionsAnswered >= 10;
+    return questionsAnswered >= 10 || currentQuestionIndex >= questions.length;
 }
 
 // Function to display the next question
@@ -299,15 +308,19 @@ function displayNextQuestion() {
     currentQuestionIndex++;
     resetButtonStyles();
     questionsAnswered++;
+
     // End quiz after 10 questions of if there are no more questions
-    if (stopQuiz() || currentQuestionIndex >= questions.length) {
+    if (stopQuiz()) {
         showResults();
         return; // Exit the function
     }
 
     displayQuestion(currentQuestionIndex);
+    enableAnswerButtons();
+}
 
-    // Enable all answer buttons for the next question
+// Enable all answer buttons for the next question
+function enableAnswerButtons() {    
     answerButtons.forEach(button => {
         button.disabled = false;
     });
