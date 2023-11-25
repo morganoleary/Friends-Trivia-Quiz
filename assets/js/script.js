@@ -296,7 +296,7 @@ function startQuiz() {
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
-// FUnction to show quiz area
+// Function to show quiz area
 function showQuizArea() {
     const quizArea = document.querySelector('.quiz-area');
     quizArea.style.display = 'block';
@@ -329,11 +329,13 @@ function countDown() {
         countdownTimer--;
         updateCountdownTimer();
     } else {
-        alert("Times Up! Next question");
+        alert("Times Up! Next question.");
         // Decrease score by one if timer runs out
         incorrectScore++;
+        updateScoreDisplay();
         // Clear the timer to restart for next question
         clearInterval(timerId);
+
         displayNextQuestion();
     }
 }
@@ -519,15 +521,10 @@ function restartQuiz() {
     updateScoreDisplay();
 
     // Reset countdown timer
-    clearInterval(timerId);
     countdownTimer = 15;
     updateCountdownTimer();
-    
-    // Restart the countdown
-    timerId = setInterval(() => {
-        countDown();
-    }, 1000);
 
+    // Reshuffle questions to start quiz from beginning
     shuffleArray(questions);
     startQuiz();
 }
