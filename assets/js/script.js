@@ -429,13 +429,20 @@ function resetButtonStyles() {
     answerButtons.forEach(button => button.classList.remove("correct", "incorrect"));
 }
 
+// Function to hide quiz area
+function hideQuizArea() {
+    quizArea.style.display = 'none';
+}
+
+// Function to show results page
+function showResultsPage() {
+    resultsPage.style.display = 'block';
+}
+
 // Function to show final quiz results
 function showResults() {
-    // Hide quiz area
-    quizArea.style.display = 'none';
-
-    // Show results page
-    resultsPage.style.display = 'block';
+    hideQuizArea();
+    showResultsPage();
 
     let yourScore = document.querySelector('.your-score');
     if (correctScore >= 7) {
@@ -455,11 +462,15 @@ function restartQuizButton() {
 
 // Function to restart quiz from beginning
 function restartQuiz() {
-    // Hide results page
-    resultsPage.style.display = 'none';
 
+    hideResultsPage();
+    enableAnswerButtons();
+    questionsAnswered = 0;
+
+    // Reset score display
+    correctScore = 0;
+    incorrectScore = 0;
+    updateScoreDisplay();
+    
     startQuiz();
-    // Reset questions & score
-    currentQuestionIndex = 0
-    score = 0
 }
