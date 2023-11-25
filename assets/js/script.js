@@ -396,7 +396,6 @@ function displayQuestion(index) {
 
         // Add a click event listener to enable the Next Question button on answer selection
         button.addEventListener("click", selectAnswer);
-
     });
 }
 
