@@ -326,12 +326,17 @@ function enableAnswerButtons() {
     });
 }
 
+// Disable the Next Question button
+function disableNextButton() {
+    nextQuestionButton.disabled = true;
+}
+
 // Function to display a question
 function displayQuestion(index) {
     let currentQuestion = questions[index];
     questionElement.textContent = currentQuestion.question;
-    // Disable the Next Question button
-    nextQuestionButton.disabled = true;
+
+    disableNextButton();
 
     // Loop through answer buttons with forEach
     answerButtons.forEach((button, i) => {
@@ -349,26 +354,53 @@ function displayQuestion(index) {
     });
 }
 
+// Function to enable next question button after answer is selected
+function enableNextButton() {
+    nextQuestionButton.disabled = false;
+}
+
+// Function to show alert if no answer is selected
+function showAlert() {
+    alert("Please select and answer! :D");
+}
+
+// Function to determine if chosen answer is correct
+function handleAnswerChoice(selectedBtn) {
+    const correctAnswer = selectedBtn.dataset.correct === "true";
+
+    changeButtonColour(selectedBtn, correctAnswer);
+    updateScore(correctAnswer);
+}
+
+// Function to change answer buttons color
+function changeButtonColour(button, correctAnswer) {
+    if (correctAnswer) {
+        button.classList.add("correct");
+    } else {
+        button.classList.add("incorrect");
+    }
+}
+
+// Function to increment scoring at bottom of quiz page
+function updateScore(correctAnswer) {
+    if (correctAnswer) {
+        correctScore++;
+    } else {
+        incorrectScore++;
+    }
+}
+
 // Function to handle selection of an answer
 function selectAnswer(event) {
-    //Enable next question button
-    nextQuestionButton.disabled = false;
+    enableNextButton();
 
     const selectedBtn = event.target;
     const data = selectedBtn.dataset.correct;
     // Check if the dataset of answers is true or false
-    if (data == "true") {
-        // Change color to green if correct
-        selectedBtn.classList.add("correct");
-        // Increment correct score
-        correctScore++;
-    } else if (data == "false") {
-        // Change color to red if incorrect
-        selectedBtn.classList.add("incorrect");
-        // Increment incorrect score
-        incorrectScore++;
+    if (data === 'true' || data === 'false') {
+        handleAnswerChoice(selectedBtn);
     } else {
-        alert("Please select an answer :D");
+        showAlert();
     }
 
     // Update and display scores
