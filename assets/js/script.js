@@ -12,7 +12,6 @@ const resultsPage = document.querySelector('.results-page');
 let currentQuestionIndex = 0;
 let correctScore = 0;
 let incorrectScore = 0;
-let totalQuestions = 25;
 let questionsAnswered = 0;
 let countdownTimer = 15;
 let timerId;
@@ -271,7 +270,6 @@ shuffleArray(questions);
 // Quiz begins with click of "Begin Quiz" button
 function startQuiz() {
     currentQuestionIndex = 0;
-    score = 0;
     // Hide the start page
     const startPage = document.querySelector('.start-page');
     startPage.style.display = 'none';
@@ -385,6 +383,7 @@ function displayQuestion(index) {
     disableNextButton();
 
     // Loop through answer buttons with forEach
+    // Assistance with functionality came from students on Slack
     answerButtons.forEach((button, i) => {
         button.textContent = currentQuestion.answers[i].text;
         // Set the dataset to determine if an answer is correct
@@ -503,7 +502,7 @@ function showResults() {
 
 // Function to listen for click of restart button
 function restartQuizButton() {
-    const restartButton = document.querySelector('.restart-button')
+    const restartButton = document.querySelector('.restart-button');
     restartButton.addEventListener("click", restartQuiz);
 }
 

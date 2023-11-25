@@ -69,6 +69,9 @@ This quiz will be targeted toward Friends enthusiasts and towards those who migh
 	- A link to the beginning of the quiz is provided for easy navigation to the correct site. 
 ![404 error page](assets/images/readme-images/404page.png)
 
+### Future Features
+- With more time, I would like to implement a score board to allow users to see their score compared to previous users. 
+
 ## Testing
 
 Validator testing:
@@ -91,6 +94,32 @@ Validator testing:
 - Testing and debugging occured in DevTools throughout the duration of the creation of this quiz.
 - The quiz was tested on Google Chrome, Microsoft Edge, Safari and mobile phones to ensure the quiz's responsiveness and appearance remained consistent throughout each. 
 
+### Unfixed Bugs:
+- The 404 page still consists of horizontal scrolling and the image does not fit the screensize. I have tried cropping the image as this makes the 404 page comedic, as I intended! I could remove the image completely, but wanted to show that I tried multiple ways to fix the scrolling issue. I have multiple commits to try adjusting the image size on the 404 page as the changes can only be seen in the deployed site of this quiz. 
+
+## Resubmission Feedback
+To follow the assessment criteria for this project, I have made adjustments to my code to complete the requirements:
+- (1.1) 
+    - A restart button has been added to the final results page to allow the user to restart the quiz. This was not implemented for the first submission as I had run out of time and should have added this to the ReadMe. 
+- (1.7)
+    - I have added custom functionality of a countdown timer that restarts with each question throughout the quiz. This creates excitement and urgency to the user to choose an answer before the time is up.
+    - The idea for this functionality came from [Stack Overflow](https://stackoverflow.com/questions/61807525/how-to-create-a-quiz-countdown-timer-for-each-question)
+- (2.5)
+    - I was able to fix the horizontal scrolling throughout the quiz by updating the viewport meta data. The idea to research more about this came from other student issues reported on Slack. 
+    - These sites were used to implement the "user-scalable" feature which removed all unecessary scrolling: [Sitebulb](https://sitebulb.com/hints/mobile-friendly/the-viewport-meta-tag-prevents-the-user-from-scaling/) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
+    - No more media queries were necessary following the above adjustment, as all screen sizes work as they should.
+- (2.8)
+    - A restart button was implemented to allow the user to restart the quiz. 
+- (4.3/4.4)
+    - For the first submission of this project, I was able to receive help from fellow students on Slack to acheive the functionality needed for the quiz and do not have other external resources to source throughout the code. 
+    - I have redone the coding to make it my own and have refactored and restructured functions to ensure the single responsibility principle applies.
+    - I would have liked to start over and redo this project from scratch, but with prior deadlines, this was not feasible, as I did not have enough time to create a brand new project.
+- Merit (1.3)
+    - Although a Merit grade is not achievable at this stage, I did implement a countdown timer to add extra functionality to the quiz. 
+    - With more time I would like to add a scoreboard at the end.
+- Merit (2.1)
+    - Fixed/Unfixed bugs noted in Readme - these should have been noted in the first submission. Unfortunately, time was against me. I have now added this section to this ReadMe. 
+
 ## Deployment
 
 This quiz was deployed through GitHub Pages.
@@ -102,6 +131,22 @@ This quiz was deployed through GitHub Pages.
 	- Click on deployed github-pages link in the right-hand side of the “Code” page.
 	
 The live link to this site can be found here: https://morganoleary.github.io/Friends-Trivia-Quiz/
+
+### Fork Repository
+
+Forking a repository allows you to create a copy to GitHub, and any changes made will not affect the original repository:
+- Within GitHub, navigate to the repository page you are going to fork
+- Click "Fork" on the top right corner of the page
+- Wait for the copy to be created and you are then redirected to the forked repository
+
+### Clone repository
+
+Cloning a repository allows you to create a local copy of a repository on your machine:
+- Within GitHub, navigate to the repository you are wanting to clone
+- Click the green "<>Code" button
+- Within the "Local" tab, copy the HTTPS url
+- In your IDE, open Git Bash and type in 'git clone' followed by the pasted url just copied from GitHub. (git clone https://example.com/repository/project)
+- The clone has been created on your local machine
 
 ## Credits
 
