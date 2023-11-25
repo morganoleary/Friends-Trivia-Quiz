@@ -417,7 +417,7 @@ function updateScoreDisplay() {
     incorrectScoreElement.textContent = `   ${incorrectScore}`;
 }
 
-// Function to disable answer buttons once an answer is selected
+// Function to disable answer buttons once an answer is chosen
 function disableButtons() {
     answerButtons.forEach(button => {
         button.disabled = true;
@@ -426,9 +426,7 @@ function disableButtons() {
 
 // Function to reset button styles
 function resetButtonStyles() {
-    answerButtons.forEach(button => {
-        button.classList.remove("correct", "incorrect");
-    });
+    answerButtons.forEach(button => button.classList.remove("correct", "incorrect"));
 }
 
 // Function to show final quiz results
