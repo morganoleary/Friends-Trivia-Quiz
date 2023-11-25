@@ -180,6 +180,7 @@ body {
 /* 404 Page Styles */
 .not-found {
     max-width: 100%;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     background-color: rgb(178, 144, 178);
@@ -189,8 +190,10 @@ body {
 }
 
 .error-image img {
-    max-width: 50%;
-    max-height: 50%;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
     margin-top: 1em;
     box-shadow: 0 0 10px 1.5px;
     border-radius: 5px;
