@@ -14,6 +14,9 @@ let correctScore = 0;
 let incorrectScore = 0;
 let totalQuestions = 25;
 let questionsAnswered = 0;
+let countdownTimer = 15;
+let timerId;
+
 
 // Wait for DOM to finish loading before beginning quiz
 document.addEventListener("DOMContentLoaded", function () {
@@ -281,18 +284,25 @@ function startQuiz() {
     displayQuestion(currentQuestionIndex);
     // Hide the results page
     hideResultsPage();
+
+    // Display countdown timer
+    updateCountdownTimer();
+    // Start countdown
+    timerId = setInterval(() => {
+        countDown();
+    }, 1000);
 }
 
 // Add event listener to Next button to display the next question
 nextQuestionButton.addEventListener("click", displayNextQuestion);
 
-// Show quiz area
+// FUnction to show quiz area
 function showQuizArea() {
     const quizArea = document.querySelector('.quiz-area');
     quizArea.style.display = 'block';
 }
 
-// Hide results page
+// Function to hide results page
 function hideResultsPage() {
     const resultsPage = document.querySelector('.results-page');
     resultsPage.style.display = 'none';
@@ -301,6 +311,31 @@ function hideResultsPage() {
 // Function to stop quiz after 10 questions are answered
 function stopQuiz() {
     return questionsAnswered >= 10 || currentQuestionIndex >= questions.length;
+}
+
+// Function to update countdown timer
+function updateCountdownTimer() {
+    document.querySelector('.countdown-timer').textContent = countdownTimer;
+
+    const timerText = document.querySelector('.timer');
+    while (timerText) {
+        timerText.textContent = countdownTimer;
+    }
+}
+
+// Function to execute countdown timer
+function countDown() {
+    if (countdownTimer > 0) {
+        countdownTimer--;
+        updateCountdownTimer();
+    } else {
+        alert("Times Up! Next question");
+        // Decrease score by one if timer runs out
+        incorrectScore++;
+        // Clear the timer to restart for next question
+        clearInterval(timerId);
+        displayNextQuestion();
+    }
 }
 
 // Function to display the next question
@@ -315,11 +350,20 @@ function displayNextQuestion() {
         return; // Exit the function
     }
 
+    // Clear timer to restart from 15 seconds for each new question
+    clearInterval(timerId);
+    countdownTimer = 15;
+
     displayQuestion(currentQuestionIndex);
     enableAnswerButtons();
+
+    // Restart the countdown
+    timerId = setInterval(() => {
+        countDown();
+    }, 1000);
 }
 
-// Enable all answer buttons for the next question
+// Function to enable all answer buttons for the next question
 function enableAnswerButtons() {    
     answerButtons.forEach(button => {
         button.disabled = false;
@@ -441,6 +485,8 @@ function showResultsPage() {
 
 // Function to show final quiz results
 function showResults() {
+    clearInterval(timerId);
+
     hideQuizArea();
     showResultsPage();
 
@@ -471,6 +517,17 @@ function restartQuiz() {
     correctScore = 0;
     incorrectScore = 0;
     updateScoreDisplay();
+
+    // Reset countdown timer
+    clearInterval(timerId);
+    countdownTimer = 15;
+    updateCountdownTimer();
     
+    // Restart the countdown
+    timerId = setInterval(() => {
+        countDown();
+    }, 1000);
+
+    shuffleArray(questions);
     startQuiz();
 }
