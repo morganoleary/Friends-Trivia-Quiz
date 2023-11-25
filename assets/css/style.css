@@ -179,6 +179,7 @@ body {
 
 /* 404 Page Styles */
 .not-found {
+    max-width: 100%;
     margin: 0;
     padding: 0;
     background-color: rgb(178, 144, 178);
