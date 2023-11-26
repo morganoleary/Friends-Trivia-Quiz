@@ -16,6 +16,7 @@ body {
 
 .heading {
     margin: 1em 0 1em;
+    cursor: pointer;
 }
 
 /* Start page before quiz begins */

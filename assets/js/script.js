@@ -9,6 +9,8 @@ const correctScoreElement = document.getElementById('score-correct');
 const incorrectScoreElement = document.getElementById('score-incorrect');
 const quizArea = document.querySelector('.quiz-area');
 const resultsPage = document.querySelector('.results-page');
+const startPage = document.querySelector('.start-page');
+const frontImage = document.querySelector('.front-page-image');
 let currentQuestionIndex = 0;
 let correctScore = 0;
 let incorrectScore = 0;
@@ -27,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Oops! Something has gone wrong!");
         }
     });
+
+    homePage();
 });
 
 const questions = [
@@ -271,10 +275,7 @@ shuffleArray(questions);
 function startQuiz() {
     currentQuestionIndex = 0;
     // Hide the start page
-    const startPage = document.querySelector('.start-page');
     startPage.style.display = 'none';
-
-    const frontImage = document.querySelector('.front-page-image');
     frontImage.style.display = 'none';
     // Show the quiz area
     showQuizArea();
@@ -525,4 +526,33 @@ function restartQuiz() {
     // Reshuffle questions to start quiz from beginning
     shuffleArray(questions);
     startQuiz();
+}
+
+// Function to go back to home page with link to title
+function homePage() {
+    const headingLink = document.querySelector('.heading');
+    headingLink.addEventListener('click', function() {
+        // Hide all pages
+        hideResultsPage();
+        hideQuizArea();
+
+        // Show the start page
+        startPage.style.display = 'block';
+        frontImage.style.display = 'block';
+        
+        // Reset scores
+        correctScore = 0
+        incorrectScore = 0
+        questionsAnswered = 0
+        updateScoreDisplay();
+
+        // Clear the timer to restart countdown
+        clearInterval(timerId);
+        countdownTimer = 15
+        updateCountdownTimer();
+
+        // Reset question and answer buttons
+        currentQuestionIndex = 0
+        enableAnswerButtons();
+    })
 }
