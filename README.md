@@ -102,14 +102,16 @@ While making the necessary adjustments needed for this resubmission, the followi
 - The timer was allowed to run out of time to ensure the alert message showed and the incorrect score was incremented
 - The link to the home page was tested from the quiz page and works to restart the quiz from scratch
 - The link to the home page was tested from the results page and works to restart the quiz from scratch
+- The countdown timer works when the quiz is started from the home page, when restarted from the results page and when the quiz is restarted from the user navigating back to the home page through the title link
 - The form was tested and submitted and successfully works using the form dump to show the users input
+- *** All JavaScript code passed throught JSHint Linter with no issues ***
 
-### Bugs/Unfixed Bugs:
+### Bugs/Unfixed Bugs - added for resubmission:
 - The 404 page initially consisted of major scrolling issues as I did not have time to figure out how to fix this completely before the first submission. I have multiple commits to try adjusting the image size on the 404 page as the changes can only be seen in the deployed site of this quiz. 
 - After pushing to GitHub multiple times to see the deployed version of this page, I was advised by tutor suppot that I could add /404.html to the end of my local server running the project to view the 404 page. 
-- The 404 page now has no excess scrolling as I updated the viewport meta data, as I did in the index.html file. This solved all excess scrolling issues!
+- The 404 page now has no excess scrolling from updating the viewport meta data, as I did in the index.html file. This solved all excess scrolling issues!
 
-## Resubmission Feedback
+## Resubmission Feedback - fixes:
 To follow the assessment criteria for this project, I have made adjustments to my code to complete the requirements:
 - (1.1) 
     - A restart button has been added to the final results page to allow the user to restart the quiz. This was not implemented for the first submission as I had run out of time and should have added this to the ReadMe. 
@@ -124,7 +126,7 @@ To follow the assessment criteria for this project, I have made adjustments to m
     - A link has been added to the title so that the user can always navigate back to the home page and restart the quiz if needed. The cursor becomes a pointer to show the user this is an option. 
 - (4.3/4.4)
     - For the first submission of this project, I was able to receive help from fellow students on Slack to acheive the functionality needed for the quiz and do not have other external resources to source throughout the code. 
-    - I have redone the coding to make it my own and have refactored and restructured functions to ensure the single responsibility principle applies and to reduce repetitive or unnecessary code.
+    - I have redone the coding to make it my own and have refactored and restructured functions to ensure the single responsibility principle applies and to reduce repetitive or unnecessary code. I have added a comment to the code that I received help from students on Slack. 
     - I would have liked to start over and redo this project from scratch, but with prior deadlines, this was not feasible, as I did not have enough time to create a brand new project.
     - I have also added customer functionality for a countdown timer and a link to the home page to show my knowledge of JavaScript. 
     - *** I have found the concepts within JavaScript are more manageable and understandable since working through Python ***

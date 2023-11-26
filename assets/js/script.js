@@ -541,18 +541,18 @@ function homePage() {
         frontImage.style.display = 'block';
         
         // Reset scores
-        correctScore = 0
-        incorrectScore = 0
-        questionsAnswered = 0
+        correctScore = 0;
+        incorrectScore = 0;
+        questionsAnswered = 0;
         updateScoreDisplay();
 
         // Clear the timer to restart countdown
         clearInterval(timerId);
-        countdownTimer = 15
+        countdownTimer = 15;
         updateCountdownTimer();
 
         // Reset question and answer buttons
-        currentQuestionIndex = 0
+        currentQuestionIndex = 0;
         enableAnswerButtons();
-    })
+    });
 }
