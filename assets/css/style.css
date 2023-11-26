@@ -180,8 +180,8 @@ body {
 
 /* 404 Page Styles */
 .not-found {
-    max-width: 100%;
-    overflow-x: hidden;
+    width: 100%;
+    overflow: hidden;
     margin: 0;
     padding: 0;
     background-color: rgb(178, 144, 178);
@@ -190,15 +190,13 @@ body {
     text-align: center;
 }
 
-.error-image img {
-    width: 100%;
-    height: auto;
-    max-height: 100%;
-    max-width: 100%;
-    margin-top: 1em;
+.error-img {
+    width: 30%;
+    max-height: 80vh;
+    max-width: 80vw;
     box-shadow: 0 0 10px 1.5px;
     border-radius: 5px;
-    margin-bottom: 1em;
+    overflow: hidden;
 }
 
 /* Media query for mobile and larger (320px and up) */

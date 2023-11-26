@@ -94,8 +94,20 @@ Validator testing:
 - Testing and debugging occured in DevTools throughout the duration of the creation of this quiz.
 - The quiz was tested on Google Chrome, Microsoft Edge, Safari and mobile phones to ensure the quiz's responsiveness and appearance remained consistent throughout each. 
 
-### Unfixed Bugs:
-- The 404 page still consists of horizontal scrolling and the image does not fit the screensize. I have tried cropping the image as this makes the 404 page comedic, as I intended! I could remove the image completely, but wanted to show that I tried multiple ways to fix the scrolling issue. I have multiple commits to try adjusting the image size on the 404 page as the changes can only be seen in the deployed site of this quiz. 
+### Manual Testing - added for resubmission:
+While making the necessary adjustments needed for this resubmission, the following additional testing was carried out:
+- The quiz was taken to consider the timer and checked to make sure the timer resets with each question shown
+- Incorrect answers were chosen to ensure the correct message is displayed on the results page
+- Correct answers were chosen to ensure the correct message is displayed on the results page
+- The timer was allowed to run out of time to ensure the alert message showed and the incorrect score was incremented
+- The link to the home page was tested from the quiz page and works to restart the quiz from scratch
+- The link to the home page was tested from the results page and works to restart the quiz from scratch
+- The form was tested and submitted and successfully works using the form dump to show the users input
+
+### Bugs/Unfixed Bugs:
+- The 404 page initially consisted of major scrolling issues as I did not have time to figure out how to fix this completely before the first submission. I have multiple commits to try adjusting the image size on the 404 page as the changes can only be seen in the deployed site of this quiz. 
+- After pushing to GitHub multiple times to see the deployed version of this page, I was advised by tutor suppot that I could add /404.html to the end of my local server running the project to view the 404 page. 
+- The 404 page now has no excess scrolling as I updated the viewport meta data, as I did in the index.html file. This solved all excess scrolling issues!
 
 ## Resubmission Feedback
 To follow the assessment criteria for this project, I have made adjustments to my code to complete the requirements:
@@ -105,15 +117,17 @@ To follow the assessment criteria for this project, I have made adjustments to m
     - I have added custom functionality of a countdown timer that restarts with each question throughout the quiz. This creates excitement and urgency to the user to choose an answer before the time is up.
     - The idea for this functionality came from [Stack Overflow](https://stackoverflow.com/questions/61807525/how-to-create-a-quiz-countdown-timer-for-each-question)
 - (2.5)
-    - I was able to fix the horizontal scrolling throughout the quiz by updating the viewport meta data. The idea to research more about this came from other student issues reported on Slack. 
+    - I was able to fix the horizontal scrolling throughout the quiz and 404 page by updating the viewport meta data. The idea to research more about this came from other student issues reported on Slack. 
     - These sites were used to implement the "user-scalable" feature which removed all unecessary scrolling: [Sitebulb](https://sitebulb.com/hints/mobile-friendly/the-viewport-meta-tag-prevents-the-user-from-scaling/) and [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
     - No more media queries were necessary following the above adjustment, as all screen sizes work as they should.
 - (2.8)
-    - A restart button was implemented to allow the user to restart the quiz. 
+    - A link has been added to the title so that the user can always navigate back to the home page and restart the quiz if needed. The cursor becomes a pointer to show the user this is an option. 
 - (4.3/4.4)
     - For the first submission of this project, I was able to receive help from fellow students on Slack to acheive the functionality needed for the quiz and do not have other external resources to source throughout the code. 
-    - I have redone the coding to make it my own and have refactored and restructured functions to ensure the single responsibility principle applies.
+    - I have redone the coding to make it my own and have refactored and restructured functions to ensure the single responsibility principle applies and to reduce repetitive or unnecessary code.
     - I would have liked to start over and redo this project from scratch, but with prior deadlines, this was not feasible, as I did not have enough time to create a brand new project.
+    - I have also added customer functionality for a countdown timer and a link to the home page to show my knowledge of JavaScript. 
+    - *** I have found the concepts within JavaScript are more manageable and understandable since working through Python ***
 - Merit (1.3)
     - Although a Merit grade is not achievable at this stage, I did implement a countdown timer to add extra functionality to the quiz. 
     - With more time I would like to add a scoreboard at the end.
