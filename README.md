@@ -110,6 +110,11 @@ While making the necessary adjustments needed for this resubmission, the followi
 - The 404 page initially consisted of major scrolling issues as I did not have time to figure out how to fix this completely before the first submission. I have multiple commits to try adjusting the image size on the 404 page as the changes can only be seen in the deployed site of this quiz. 
 - After pushing to GitHub multiple times to see the deployed version of this page, I was advised by tutor suppot that I could add /404.html to the end of my local server running the project to view the 404 page. 
 - The 404 page now has no excess scrolling from updating the viewport meta data, as I did in the index.html file. This solved all excess scrolling issues!
+- The feedback form works correctly, however when the quiz is restarted, the feedback provided does not refresh to a blank container.
+    - The following code was added to try to achieve this, but with time short, I have left it out with the bug in place so as not to muddle the coding with code that does not work:
+
+    const feedbackContainer = document.querySelector('.feedback-container');
+    feedbackContainer.value = '';
 
 ## Resubmission Feedback - fixes:
 To follow the assessment criteria for this project, I have made adjustments to my code to complete the requirements:
